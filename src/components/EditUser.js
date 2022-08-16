@@ -4,8 +4,12 @@ import { useNavigate, useParams } from "react-router-dom";
  
 const EditUser = () => {
   const [name, setName] = useState("");
+  const [nim, setNIM] = useState("");
+  const [kelas, setKelas] = useState("");
+  const [semester, setSemester] = useState("");
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("Male");
+  const [alamat, setAlamat] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
  
@@ -16,8 +20,12 @@ const EditUser = () => {
   const getUserById = async () => {
     const response = await axios.get(`https://backend-node2.herokuapp.com/users/${id}`);
     setName(response.data.name);
+    setNIM(response.data.nim);
+    setKelas(response.data.kelas);
+    setSemester(response.data.semester);
     setEmail(response.data.email);
     setGender(response.data.gender);
+    setAlamat(response.data.alamat);
   };
  
   const updateUser = async (e) => {
@@ -51,6 +59,42 @@ const EditUser = () => {
             </div>
           </div>
           <div className="field">
+            <label className="label">Nim</label>
+            <div className="control">
+              <input
+                type="text"
+                className="input"
+                value={nim}
+                onChange={(e) => setNIM(e.target.value)}
+                placeholder="Nim"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label">Kelas</label>
+            <div className="control">
+              <input
+                type="text"
+                className="input"
+                value={kelas}
+                onChange={(e) => setKelas(e.target.value)}
+                placeholder="Kelas"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label">semester</label>
+            <div className="control">
+              <input
+                type="text"
+                className="input"
+                value={semester}
+                onChange={(e) => setSemester(e.target.value)}
+                placeholder="semester"
+              />
+            </div>
+          </div>
+          <div className="field">
             <label className="label">Email</label>
             <div className="control">
               <input
@@ -74,6 +118,18 @@ const EditUser = () => {
                   <option value="Female">Female</option>
                 </select>
               </div>
+            </div>
+          </div>
+          <div className="field">
+            <label className="label">Alamat</label>
+            <div className="control">
+              <input
+                type="text"
+                className="input"
+                value={alamat}
+                onChange={(e) => setAlamat(e.target.value)}
+                placeholder="Alamat"
+              />
             </div>
           </div>
           <div className="field">

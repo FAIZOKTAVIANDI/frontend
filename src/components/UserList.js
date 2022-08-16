@@ -34,8 +34,12 @@ const UserList = () => {
             <tr>
               <th>No</th>
               <th>Name</th>
+              <td>Nim</td>
+              <th>Kelas</th>
+              <th>Semester</th>
               <th>Email</th>
               <th>Gender</th>
+              <th>Alamat</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -44,8 +48,12 @@ const UserList = () => {
               <tr key={user._id}>
                 <td>{index + 1}</td>
                 <td>{user.name}</td>
+                <td>{user.nim}</td>
+                <td>{user.kelas}</td>
+                <td>{user.semester}</td>
                 <td>{user.email}</td>
                 <td>{user.gender}</td>
+                <td>{user.alamat}</td>
                 <td>
                   <Link
                     to={`edit/${user._id}`}
